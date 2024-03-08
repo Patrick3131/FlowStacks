@@ -21,7 +21,9 @@ public struct Router<Screen, ScreenView: View>: View {
   
   public var body: some View {
     Node(allScreens: $routes, truncateToIndex: { index in routes = Array(routes.prefix(index)) }, index: 0, buildView: buildView)
-      .environmentObject(FlowNavigator($routes))
+      .environmentObject(FlowNavigator($routes)) 
+//      Causes memory leak and functionality is not used by me, check back later on Flowstacks for potential fix: https://github.com/johnpatrickmorgan/FlowStacks/issues/70
+
   }
 }
 
